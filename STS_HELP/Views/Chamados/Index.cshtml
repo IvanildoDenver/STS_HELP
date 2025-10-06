@@ -1,0 +1,123 @@
+﻿@{
+    ViewData["Title"] = "CHAMADOS";
+}
+
+<div>
+    <h1 class="">Chamados</h1>
+</div>
+
+<div>
+    <a class="btn btn-primary" role="button" asp-controller="Chamados" asp-action="CriarChamado">  Criar Chanmado  </a>
+</div>
+
+<table class="table table-striped mt-5">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">TITULO</th>
+            <th scope="col">DESCRIÇÃO</th>
+            <th scope="col">CATEGORIA</th>
+            <th scope="col">PRIORIDADE</th>
+            <th scope="col">STATUS</th>
+            <th scope="col">USUARIO</th>
+            <th scope="col">DT ABERTURA</th>
+            <th scope="col">DT FECHAMENTO</th>
+            <th scope="col">EDITAR</th>
+            <th scope="col">FECHAR</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>mdo</td>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>mdo</td>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td> <a class="btn btn-primary" role="button" asp-controller="Chamados" asp-action="EditarChamado">  Editar  </a> </td>
+            <td> <a class="btn btn-danger" role="button" @*asp-controller="Chamados" asp-action="FinalizarChamado"*@ data-bs-toggle="modal" data-bs-target="#exampleModal"> Fechar </a> </td>
+                
+            
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>mdo</td>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>mdo</td>
+            <td>Mark</td>
+            <td>Otto</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>mdo</td>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>mdo</td>
+            <td>Mark</td>
+            <td>Otto</td>
+        </tr>
+         <tr>
+            <th scope="row">4</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>mdo</td>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>mdo</td>
+            <td>Mark</td>
+            <td>Otto</td>
+        </tr>
+        <tr>
+            <th scope="row">5</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>mdo</td>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>mdo</td>
+            <td>Mark</td>
+            <td>Otto</td>
+        </tr>
+        <tr>
+            <th scope="row">6</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>mdo</td>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>mdo</td>
+            <td>Mark</td>
+            <td>Otto</td>
+        </tr>
+
+    </tbody>
+</table>
+
+
+@* MODAL FINALIZAR CHAMADO*@
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">FINALIZAR CHAMADO?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Deseja Finalizar o Chamado?</p>
+            </div>
+            <div class="modal-footer">
+                <a type="button" class="btn btn-primary btn-lg" asp-asp-controller="Chamados" asp-action="FinalizarChamado">Finalizar</a>
+                <a type="button" class="btn btn-secondary btn-lg" asp-asp-controller="Chamados" asp-action="index"> Cancelar </a>
+            </div>
+        </div>
+    </div>
+</div>
+
