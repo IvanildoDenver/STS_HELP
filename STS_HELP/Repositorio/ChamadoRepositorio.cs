@@ -1,6 +1,5 @@
 ﻿using STS_HELP.Data;
 using STS_HELP.Models;
-using STS_HELP.Views;
 
 namespace STS_HELP.Repositorio
 {
@@ -15,6 +14,12 @@ namespace STS_HELP.Repositorio
         }
 
 
+        public List<ChamadosModel> ListarChamados()
+        {
+            return _bancoContext.Chamados.ToList();
+        }
+
+
         public ChamadosModel Adicionar(ChamadosModel chamados)
         {
             //throw new NotImplementedException();
@@ -24,5 +29,7 @@ namespace STS_HELP.Repositorio
             return chamados;
 
         }
+
+        
     }
 }

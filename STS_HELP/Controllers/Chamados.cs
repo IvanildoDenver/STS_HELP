@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using STS_HELP.Models;
-using STS_HELP.Views;
 
 namespace STS_HELP.Controllers
 {
@@ -18,11 +17,16 @@ namespace STS_HELP.Controllers
         //METODOS GET
         public IActionResult Index()
         {
-            return View();
+            List<ChamadosModel> listaChamados = _chamadoRepositorio.ListarChamados();
+
+
+
+            return View(listaChamados);
         }
 
-        public IActionResult EditarChamado()
+        public IActionResult AceitarChamado(int id)
         {
+
             return View();
         }
 

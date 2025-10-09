@@ -1,0 +1,154 @@
+﻿@model List<UsuariosModel>
+
+
+@{
+    ViewData["Title"] = "USUARIOS";
+}
+
+<div>
+    <h1 class="">Usuarios</h1>
+</div>
+
+<div>
+    <a class="btn btn-primary" role="button" asp-controller="Usuarios" asp-action="CriarUsuario">  Cadastrar Usuario  </a>
+</div>
+
+<table class="table table-striped mt-5">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">NOME</th>
+            <th scope="col">EMAIL</th>
+            <th scope="col">USUARIO</th>
+            <th scope="col">ATIVO?</th>
+            @* <th scope="col">SENHA</th>
+            <th scope="col">STATUS</th>
+            <th scope="col">USUARIO</th>
+            <th scope="col">DT ABERTURA</th>
+            <th scope="col">DT FECHAMENTO</th>*@
+            <th scope="col">EDITAR</th>
+            <th scope="col">INATIVAR/ATIVAR</th> 
+        </tr>
+    </thead>
+    <tbody>
+        @if(Model != null && Model.Any())
+        {
+            foreach(UsuariosModel usuario in Model)
+            {
+                <tr>
+                    <th scope="row">@usuario.Id</th>
+                    <td>@usuario.Nome</td>
+                    <td>@usuario.Email</td>
+                    <td>@usuario.TipoUsuario</td>
+                    <td>@usuario.SituacaoUsuario</td>
+                    @*<td>@usuario.Senha</td>
+                    <td>@chamado.status</td>
+                    <td>@chamado.Usuario</td>
+                    <td>@chamado.dt_Abertura</td>
+                    <td>@chamado.dt_fechamento</td> *@
+                    <td> <a class="btn btn-primary" role="button" asp-route-id="@usuario.Id" asp-controller="Usuarios" asp-action="EditarUsuario">  Editar  </a> </td>
+
+                    <td>
+                        @if(usuario.SituacaoUsuario == true)
+                        {
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#inativarModal" data-id="@usuario.Id">
+                                Inativar
+                            </button>
+                        }
+                        else
+                        {
+                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ativarModal" data-id="@usuario.Id">
+                                Ativar
+                            </button>
+                        }
+                    </td>  
+                </tr>
+            }
+        }
+
+
+
+
+    </tbody>
+</table>
+
+
+@* MODAL INATIVAR USUARIO*@
+<div class="modal fade" id="inativarModal" tabindex="-1" aria-labelledby="inativarModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="inativarModalLabel">INATIVAR USUÁRIO?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Deseja realmente inativar usuário?
+            </div>
+            <div class="modal-footer">
+                <form asp-controller="Usuarios" asp-action="Inativar" method="post">
+                    <input type="hidden" name="id" id="usuarioIdParaInativar" />
+
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-danger">Inativar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="ativarModal" tabindex="-1" aria-labelledby="ativarModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ativarModalLabel">ATIVAR USUÁRIO?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Deseja realmente Ativar usuário?
+            </div>
+            <div class="modal-footer">
+                <form asp-controller="Usuarios" asp-action="Inativar" method="post">
+                    <input type="hidden" name="id" id="usuarioIdParaAtivar" />
+
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Ativar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+        const inativarModal = document.getElementById('inativarModal');
+        const ativarModal = document.getElementById('ativarModal');
+
+        inativarModal.addEventListener('show.bs.modal', event => {
+            // Pega o botão que abriu o modal
+            const button = event.relatedTarget;
+
+            // Extrai o ID do atributo data-id do botão
+            const usuarioId = button.getAttribute('data-id');
+
+            // Encontra o input escondido dentro do modal e define seu valor
+            const hiddenInput = inativarModal.querySelector('#usuarioIdParaInativar');
+            hiddenInput.value = usuarioId;
+        });
+
+
+          ativarModal.addEventListener('show.bs.modal', event => {
+            // Pega o botão que abriu o modal
+            const button = event.relatedTarget;
+
+            // Extrai o ID do atributo data-id do botão
+            const usuarioId = button.getAttribute('data-id');
+
+            // Encontra o input escondido dentro do modal e define seu valor
+            const hiddenInput = ativarModal.querySelector('#usuarioIdParaAtivar');
+            hiddenInput.value = usuarioId;
+        });
+    </script>
+}

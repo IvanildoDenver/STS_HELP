@@ -16,6 +16,7 @@ namespace STS_HELP.Data
         }
 
         public DbSet<ChamadosModel> Chamados { get; set; }
+        public DbSet<UsuariosModel> Usuarios { get; set; }
 
     }
 }
