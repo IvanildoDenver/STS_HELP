@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using STS_HELP;
 using STS_HELP.Data;
 using STS_HELP.Repositorio;
-using STS_HELP.Views;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +13,7 @@ builder.Services.AddControllersWithViews();
 //INJEÇÃO DE DEPENDÊNCIA:
 builder.Services.AddEntityFrameworkNpgsql().AddDbContext<BancoContext>( o => o.UseNpgsql(builder.Configuration.GetConnectionString("DataBase")));
 builder.Services.AddScoped<IChamadoRepositorio, ChamadoRepositorio>();
+builder.Services.AddScoped<IUsuariosRepositorio, UsuariosRepositorio>();
 
 var app = builder.Build();
 
