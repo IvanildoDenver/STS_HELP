@@ -8,6 +8,12 @@ namespace STS_HELP
         List<ChamadosModel> ListarChamados();
 
         ChamadosModel Adicionar(ChamadosModel chamados);
+
+        ChamadosModel ExibeInfoChamado(int id);
+
+        ChamadosModel AceitarEFinalizarChamado(int id);
+
+        //ChamadosModel FinalizarChamados(int id);
        
     }
 }

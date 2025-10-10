@@ -44,11 +44,6 @@ namespace STS_HELP.Controllers
         }
 
 
-        //public IActionResult Inativar(int id)
-        //{
-        //    return RedirectToAction("Index");
-        //}
-
 
         //METODOS POST
         [HttpPost]

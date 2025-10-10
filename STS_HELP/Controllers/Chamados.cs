@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using STS_HELP.Models;
+using STS_HELP.Repositorio;
 
 namespace STS_HELP.Controllers
 {
@@ -61,6 +62,21 @@ namespace STS_HELP.Controllers
             }
             return View(chamados);
         }
+
+
+        [HttpPost]
+        public IActionResult AceitarEFinalizarChamado(int id)
+        {
+            // Chamo repositório passando o ID
+            _chamadoRepositorio.AceitarEFinalizarChamado(id);
+
+            return RedirectToAction("Index");
+        }
+
+
+
+
+
 
     }
 }

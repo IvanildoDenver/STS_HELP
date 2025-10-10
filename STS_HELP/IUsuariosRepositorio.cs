@@ -14,6 +14,5 @@ namespace STS_HELP
 
         UsuariosModel Inativar(int id);
 
-        //bool Inativar(int id);
     }
 }
