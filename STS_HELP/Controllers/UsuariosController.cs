@@ -51,7 +51,8 @@ namespace STS_HELP.Controllers
         {
             if (ModelState.IsValid)
             {
- 
+                usuarios.SituacaoUsuario = true;
+
                 _usuariosRepositorio.Adicionar(usuarios);
 
                 return RedirectToAction("Index");

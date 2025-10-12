@@ -54,7 +54,7 @@ namespace STS_HELP.Controllers
                 // Define a data de abertura como o momento exato da criação do chamado.
                 chamados.dt_Abertura = DateTime.UtcNow;
 
-                chamados.Usuario = 1;
+                
 
                 _chamadoRepositorio.Adicionar(chamados);
 
@@ -69,6 +69,7 @@ namespace STS_HELP.Controllers
         {
             // Chamo repositório passando o ID
             _chamadoRepositorio.AceitarEFinalizarChamado(id);
+
 
             return RedirectToAction("Index");
         }
