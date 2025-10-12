@@ -13,7 +13,7 @@
     <a class="btn btn-primary" role="button" asp-controller="Usuarios" asp-action="CriarUsuario">  Cadastrar Usuario  </a>
 </div>
 
-<table class="table table-striped mt-5">
+<table class="table table-striped mt-5" id="tabelaUsuarios">
     <thead>
         <tr>
             <th scope="col">ID</th>
@@ -119,40 +119,3 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-@section Scripts {
-    <script>
-        const inativarModal = document.getElementById('inativarModal');
-        const ativarModal = document.getElementById('ativarModal');
-
-        inativarModal.addEventListener('show.bs.modal', event => {
-            // Pega o botão que abriu o modal
-            const button = event.relatedTarget;
-
-            // Extrai o ID do atributo data-id do botão
-            const usuarioId = button.getAttribute('data-id');
-
-            // Encontra o input escondido dentro do modal e define seu valor
-            const hiddenInput = inativarModal.querySelector('#usuarioIdParaInativar');
-            hiddenInput.value = usuarioId;
-        });
-
-
-          ativarModal.addEventListener('show.bs.modal', event => {
-            // Pega o botão que abriu o modal
-            const button = event.relatedTarget;
-
-            // Extrai o ID do atributo data-id do botão
-            const usuarioId = button.getAttribute('data-id');
-
-            // Encontra o input escondido dentro do modal e define seu valor
-            const hiddenInput = ativarModal.querySelector('#usuarioIdParaAtivar');
-            hiddenInput.value = usuarioId;
-        });
-    </script>
-}
