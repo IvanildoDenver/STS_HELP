@@ -1,8 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using STS_HELP.Filters;
 using STS_HELP.Models;
 
 namespace STS_HELP.Controllers
 {
+
+    [PaginaUsuarioGestor]
     public class UsuariosController : Controller
     {
 

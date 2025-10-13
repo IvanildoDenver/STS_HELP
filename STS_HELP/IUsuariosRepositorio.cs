@@ -4,6 +4,9 @@ namespace STS_HELP
 {
     public interface IUsuariosRepositorio
     {
+
+        UsuariosModel BuscarLogin(string eamil);
+
         List<UsuariosModel> ListarUsuarios();
 
         UsuariosModel Adicionar(UsuariosModel usuarios);

@@ -78,6 +78,10 @@ namespace STS_HELP.Repositorio
         }
 
 
+        public UsuariosModel BuscarLogin(string email)
+        {
+            return _bancoContext.Usuarios.FirstOrDefault(x => x.Email.ToLower() == email.ToLower());
+        }
     }
 }
 

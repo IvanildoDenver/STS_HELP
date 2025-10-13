@@ -1,9 +1,13 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using STS_HELP.Filters;
 using STS_HELP.Models;
+using System.Diagnostics;
 
 namespace STS_HELP.Controllers
 {
+    [PaginaUsuarioTecnico]
+    [PaginaUsuarioGestor]
+
     public class HomeController : Controller
     {
         //private readonly ILogger<HomeController> _logger;

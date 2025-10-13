@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using STS_HELP;
 using STS_HELP.Data;
+using STS_HELP.Helper;
 using STS_HELP.Repositorio;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,8 +13,19 @@ builder.Services.AddControllersWithViews();
 
 //INJEÇÃO DE DEPENDÊNCIA:
 builder.Services.AddEntityFrameworkNpgsql().AddDbContext<BancoContext>( o => o.UseNpgsql(builder.Configuration.GetConnectionString("DataBase")));
+
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+
 builder.Services.AddScoped<IChamadoRepositorio, ChamadoRepositorio>();
 builder.Services.AddScoped<IUsuariosRepositorio, UsuariosRepositorio>();
+builder.Services.AddScoped<ISessao, Sessao>();
+
+builder.Services.AddSession(o =>
+{
+    o.Cookie.HttpOnly = true;
+    o.Cookie.IsEssential = true;
+});
 
 var app = builder.Build();
 
@@ -32,9 +44,11 @@ app.UseAuthorization();
 
 app.MapStaticAssets();
 
+app.UseSession();
+
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
+    pattern: "{controller=Login}/{action=Index}/{id?}")
     .WithStaticAssets();
 
 
