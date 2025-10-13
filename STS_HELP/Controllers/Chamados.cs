@@ -1,9 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using STS_HELP.Filters;
 using STS_HELP.Models;
 using STS_HELP.Repositorio;
 
 namespace STS_HELP.Controllers
 {
+    [PaginaUsuarioTecnico]
+    [PaginaUsuarioGestor]
     public class Chamados : Controller
     {
         private readonly IChamadoRepositorio _chamadoRepositorio;
