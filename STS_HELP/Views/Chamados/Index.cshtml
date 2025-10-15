@@ -57,27 +57,27 @@
                     <td>@chamado.Usuario</td>
                     <td>@chamado.dt_Abertura</td>
                     <td>@chamado.dt_fechamento</td>
-                    <td>
+                    
+                        <td>
 
-                        @if (chamado.status == 1)
-                        {
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AceitarChamadoModal" data-id="@chamado.Id">
-                                Iniciar
-                            </button>
-                        }
-                        else if (chamado.status == 2)
-                        {
-                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#FinalizarChamadoModal" data-id="@chamado.Id">
-                                Finalizar
-                            </button>
-                        }
-                        else
-                        {
-                            <p>Finalizado</p>
-                        }
+                            @if (chamado.status == 1)
+                            {
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AceitarChamadoModal" data-id="@chamado.Id">
+                                    Iniciar
+                                </button>
+                            }
+                            else if (chamado.status == 2)
+                            {
+                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#FinalizarChamadoModal" data-id="@chamado.Id">
+                                    Finalizar
+                                </button>
+                            }
+                            else
+                            {
+                                <p>Finalizado</p>
+                            }
 
-                    </td>
-                 
+                        </td>
 
                 </tr>
             }

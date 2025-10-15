@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.VisualBasic;
+using STS_HELP.Helper;
 
 
 namespace STS_HELP.Models
@@ -35,8 +36,12 @@ namespace STS_HELP.Models
 
         public bool SenhaValida(string senha)
         {
-            return Senha  == senha;
+            return Senha  == senha.GerarHash();
         }
 
+        public void SetSenhaHash()
+        {
+            Senha = Senha.GerarHash();
+        }
     }
 }

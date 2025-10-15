@@ -5,8 +5,7 @@ using STS_HELP.Repositorio;
 
 namespace STS_HELP.Controllers
 {
-    [PaginaUsuarioTecnico]
-    [PaginaUsuarioGestor]
+    [PaginaParaUsuariosLogados("Gestor", "Tecnico")]
     public class Chamados : Controller
     {
         private readonly IChamadoRepositorio _chamadoRepositorio;

@@ -22,6 +22,8 @@ namespace STS_HELP.Repositorio
         public UsuariosModel Adicionar(UsuariosModel usuarios)
         {
             //ADICIONAR NO BANCO DE DADOS
+
+            usuarios.SetSenhaHash();
             _bancoContext.Usuarios.Add(usuarios);
             _bancoContext.SaveChanges();
             return usuarios;
