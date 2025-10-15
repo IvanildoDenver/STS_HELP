@@ -5,7 +5,7 @@ using STS_HELP.Models;
 namespace STS_HELP.Controllers
 {
 
-    [PaginaUsuarioGestor]
+    [PaginaParaUsuariosLogados("Gestor")]
     public class UsuariosController : Controller
     {
 

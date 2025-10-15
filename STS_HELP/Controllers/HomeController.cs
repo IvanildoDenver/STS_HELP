@@ -5,8 +5,7 @@ using System.Diagnostics;
 
 namespace STS_HELP.Controllers
 {
-    [PaginaUsuarioTecnico]
-    [PaginaUsuarioGestor]
+    [PaginaParaUsuariosLogados("Gestor", "Tecnico")]
 
     public class HomeController : Controller
     {
